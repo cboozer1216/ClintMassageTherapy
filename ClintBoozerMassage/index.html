@@ -374,6 +374,34 @@
             border-bottom: 1px dashed var(--secondary);
         }
 
+        /* Duration Selector Buttons */
+        .duration-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+
+        .duration-btn {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 25px;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .duration-btn.active, .duration-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         /* New External Link Button Style */
         .external-link {
             margin-left: auto;
@@ -421,16 +449,42 @@
         }
         
         .modal-footer {
-            padding: 10px;
-            background: #f9f9f9;
+            padding: 1.5rem;
+            background-color: #fffaf0; /* Warmer, prominent background */
             text-align: center;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
+            border-top: 2px solid var(--gold-touch);
+            font-size: 1.1rem;
+            color: var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .modal-footer strong {
+            font-size: 1.2rem;
+            font-weight: 700;
         }
         
         .modal-footer a {
-            color: var(--primary);
-            font-weight: bold;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        
+        .modal-footer a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
         }
         
         footer {
@@ -545,7 +599,7 @@
 
                 <!-- Hot Stone -->
                 <div class="card">
-                     <!-- Updated Hot Stone Image: Used local file 'hotstonemassage.jpeg' as requested -->
+                     <!-- Updated Hot Stone Image: Swapped from previous Deep Tissue (dark stones, similar to header) -->
                     <img src="hotstonemassage.jpeg" alt="Hot Stone Therapy" class="card-image">
                     <div class="card-content">
                         <h3>Hot Stone Therapy</h3>
@@ -564,20 +618,29 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Schedule Your Session</h2>
-                <!-- VISIBLE LINK FIX: This ensures clients can book even if the iframe is blocked -->
-                <a href="https://calendar.google.com/calendar/appointments/AcZssZ2sDDYK0QDTB57YV7WlESSa-4NCKyWt3bsKr1Y=?gv=true" target="_blank" class="external-link">Open in new window ↗</a>
+                <!-- External Link updates dynamically -->
+                <a id="externalLink" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" target="_blank" class="external-link">Open in new window ↗</a>
                 <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
+            
+            <!-- Duration Buttons -->
+            <div class="duration-selector">
+                <button class="duration-btn active" onclick="setDuration(60, this)">60 Minutes ($100)</button>
+                <button class="duration-btn" onclick="setDuration(90, this)">90 Minutes ($135)</button>
+            </div>
+
             <div class="calendar-container">
                 <!-- Google Calendar Appointment Schedule Iframe -->
                 <iframe 
-                    src="https://calendar.google.com/calendar/appointments/AcZssZ2sDDYK0QDTB57YV7WlESSa-4NCKyWt3bsKr1Y=?gv=true" 
+                    id="calendarFrame"
+                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" 
                     title="Schedule Appointment"
                 ></iframe>
             </div>
             <!-- Added Link to Intake Form -->
             <div class="modal-footer">
-                New Client? Please <a href="intake.html" target="_blank">fill out the Intake Form</a> before your arrival.
+                <span><strong>New Client?</strong> Please complete this before your arrival:</span>
+                <a href="intake.html" target="_blank">Fill Out Intake Form</a>
             </div>
         </div>
     </div>
@@ -595,6 +658,10 @@
         // Modal Logic
         const modal = document.getElementById('bookingModal');
 
+        // CALENDAR LINKS - Updated with user provided 60m and 90m links
+        const link60 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true";
+        const link90 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2O2cBYzn5hHCMI_y8_D2tDXRZarl5GeRQv0g0yRVr6YaFCLIP_bZsFj1bpswYXI6UWEIfmd-g0?gv=true"; 
+
         function openModal() {
             modal.style.display = 'flex';
             // Prevent background scrolling
@@ -605,6 +672,24 @@
             modal.style.display = 'none';
             // Re-enable background scrolling
             document.body.style.overflow = 'auto';
+        }
+
+        function setDuration(minutes, btn) {
+            // Update Active Button Style
+            document.querySelectorAll('.duration-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update Iframe Source
+            const iframe = document.getElementById('calendarFrame');
+            const externalBtn = document.getElementById('externalLink');
+            
+            if (minutes === 60) {
+                iframe.src = link60;
+                externalBtn.href = link60;
+            } else {
+                iframe.src = link90;
+                externalBtn.href = link90;
+            }
         }
 
         // Close modal if clicking outside content
