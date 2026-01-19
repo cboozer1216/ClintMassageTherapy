@@ -7,7 +7,7 @@
     <!-- Google Fonts for a more premium look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -21,8 +21,9 @@
             --white: #fff;
             --light-bg: #EFECE5; /* Warm Beige for sections */
             --gold-touch: #C1A57B; /* Subtle accent color */
-            --alert-bg: #FFF8E1; /* Light Amber for alert */
-            --alert-border: #FFD54F; /* Amber border */
+            --alert-bg: #fff3cd; /* Richer Amber for alert */
+            --alert-text: #856404; /* High contrast alert text */
+            --alert-border: #ffeeba; /* Amber border */
         }
 
         body {
@@ -450,50 +451,71 @@
             border: none;
         }
         
-        /* NEW - Extra Large Intake Notification Bar Style */
+        /* EYE-CATCHING Notification Bar Style */
         .intake-notification-bar {
             background-color: var(--alert-bg); 
-            padding: 2rem 1.5rem; /* Larger padding */
+            padding: 1.2rem; /* Increased padding */
             text-align: center;
-            border-bottom: 3px solid var(--alert-border);
+            border-bottom: 2px solid var(--alert-border);
             display: flex;
-            flex-direction: column; /* Stack vertically for impact */
+            flex-direction: row; /* Horizontal */
+            flex-wrap: wrap; /* Wrap on small screens */
             justify-content: center;
             align-items: center;
             gap: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .intake-notification-bar span {
-            color: var(--primary);
-            font-size: 1.3rem; /* Larger text */
-            font-family: 'Playfair Display', serif; /* Use heading font */
+            color: var(--alert-text); 
+            font-size: 1.1rem; /* Larger font */
+            font-family: 'Lato', sans-serif;
+            font-weight: 900; /* Extra bold */
+            line-height: 1.2;
         }
         
         .intake-notification-bar strong {
-            font-size: 1.5rem; /* Even larger bold text */
-            display: block;
-            margin-bottom: 5px;
-            color: #d88d00; /* Darker amber for contrast */
+            text-transform: uppercase;
+            color: #d88d00;
         }
 
         .intake-notification-bar a {
             background-color: var(--primary);
             color: white;
-            padding: 15px 40px; /* Larger button */
+            padding: 10px 24px; /* Larger button */
             border-radius: 4px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            font-size: 1.1rem; /* Larger button text */
-            letter-spacing: 1.5px;
+            font-size: 0.95rem; 
+            letter-spacing: 1px;
             transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            white-space: nowrap; /* Prevent button text wrapping */
         }
         
         .intake-notification-bar a:hover {
             background-color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile specific adjustments for intake bar */
+        @media (max-width: 600px) {
+            .intake-notification-bar {
+                flex-direction: column; /* Stack on small screens */
+                gap: 10px;
+                padding: 1rem;
+            }
+            .intake-notification-bar span {
+                font-size: 1rem;
+            }
+            .modal-header h2 {
+                font-size: 1.1rem;
+            }
+            .external-link {
+                display: none; /* Hide external link on mobile to save space */
+            }
         }
 
         footer {
@@ -632,10 +654,10 @@
                 <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
             
-            <!-- EXTRA LARGE Intake Notification at Top -->
+            <!-- EYE-CATCHING Intake Notification at Top (Side-by-side) -->
             <div class="intake-notification-bar">
-                 <span><strong>NEW CLIENT?</strong><br>Please complete the mandatory health form before your arrival:</span>
-                 <a href="intake.html" target="_blank">FILL OUT INTAKE FORM</a>
+                 <span><strong>NEW CLIENT?</strong> Please fill this out before arrival:</span>
+                 <a href="intake.html" target="_blank">Fill Intake Form</a>
             </div>
 
             <!-- Duration Buttons -->
