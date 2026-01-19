@@ -21,6 +21,8 @@
             --white: #fff;
             --light-bg: #EFECE5; /* Warm Beige for sections */
             --gold-touch: #C1A57B; /* Subtle accent color */
+            --alert-bg: #FFF8E1; /* Light Amber for alert */
+            --alert-border: #FFD54F; /* Amber border */
         }
 
         body {
@@ -448,45 +450,52 @@
             border: none;
         }
         
-        .modal-footer {
-            padding: 1.5rem;
-            background-color: #fffaf0; /* Warmer, prominent background */
+        /* NEW - Extra Large Intake Notification Bar Style */
+        .intake-notification-bar {
+            background-color: var(--alert-bg); 
+            padding: 2rem 1.5rem; /* Larger padding */
             text-align: center;
-            border-top: 2px solid var(--gold-touch);
-            font-size: 1.1rem;
-            color: var(--primary);
+            border-bottom: 3px solid var(--alert-border);
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Stack vertically for impact */
+            justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+        }
+
+        .intake-notification-bar span {
+            color: var(--primary);
+            font-size: 1.3rem; /* Larger text */
+            font-family: 'Playfair Display', serif; /* Use heading font */
         }
         
-        .modal-footer strong {
-            font-size: 1.2rem;
-            font-weight: 700;
+        .intake-notification-bar strong {
+            font-size: 1.5rem; /* Even larger bold text */
+            display: block;
+            margin-bottom: 5px;
+            color: #d88d00; /* Darker amber for contrast */
         }
-        
-        .modal-footer a {
+
+        .intake-notification-bar a {
             background-color: var(--primary);
             color: white;
-            padding: 12px 24px;
+            padding: 15px 40px; /* Larger button */
             border-radius: 4px;
             text-decoration: none;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-size: 1.1rem; /* Larger button text */
+            letter-spacing: 1.5px;
             transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         
-        .modal-footer a:hover {
+        .intake-notification-bar a:hover {
             background-color: var(--secondary);
             transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
-        
+
         footer {
             background: var(--primary);
             color: rgba(255,255,255,0.7);
@@ -623,6 +632,12 @@
                 <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
             
+            <!-- EXTRA LARGE Intake Notification at Top -->
+            <div class="intake-notification-bar">
+                 <span><strong>NEW CLIENT?</strong><br>Please complete the mandatory health form before your arrival:</span>
+                 <a href="intake.html" target="_blank">FILL OUT INTAKE FORM</a>
+            </div>
+
             <!-- Duration Buttons -->
             <div class="duration-selector">
                 <button class="duration-btn active" onclick="setDuration(60, this)">60 Minutes ($100)</button>
@@ -636,11 +651,6 @@
                     src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" 
                     title="Schedule Appointment"
                 ></iframe>
-            </div>
-            <!-- Added Link to Intake Form -->
-            <div class="modal-footer">
-                <span><strong>New Client?</strong> Please complete this before your arrival:</span>
-                <a href="intake.html" target="_blank">Fill Out Intake Form</a>
             </div>
         </div>
     </div>
