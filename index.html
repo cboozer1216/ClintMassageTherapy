@@ -134,13 +134,21 @@
             position: relative;
         }
 
-        /* MOBILE FIX: Disable Parallax on phones.
+        /* MOBILE & TABLET FIX: Disable Parallax on phones and tablets.
            This fixes the issue where the background disappears or zooms in too much.
+           Increased max-width to 1024px to catch landscape phones and tablets.
         */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             header {
                 background-attachment: scroll;
                 background-position: center center;
+            }
+        }
+
+        /* LANDSCAPE FIX: Reduce vertical padding in landscape mode to show more of the image */
+        @media (orientation: landscape) and (max-height: 600px) {
+            header {
+                padding: 5rem 1rem; /* Reduced from 10rem */
             }
         }
 
@@ -529,10 +537,6 @@
             }
             .external-link {
                 display: none; 
-            }
-            /* Further reduce background issues on mobile */
-            header {
-                background-position: top center;
             }
         }
 
