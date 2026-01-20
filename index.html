@@ -124,11 +124,24 @@
             background: linear-gradient(rgba(44, 62, 54, 0.6), rgba(44, 62, 54, 0.4)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
+            
+            /* PARALLAX EFFECT FOR DESKTOP */
             background-attachment: fixed; 
+            
             color: var(--white);
             text-align: center;
             padding: 10rem 1rem;
             position: relative;
+        }
+
+        /* MOBILE FIX: Disable Parallax on phones.
+           This fixes the issue where the background disappears or zooms in too much.
+        */
+        @media (max-width: 768px) {
+            header {
+                background-attachment: scroll;
+                background-position: center center;
+            }
         }
 
         header h1 {
@@ -449,12 +462,12 @@
             border: none;
         }
         
-        /* EYE-CATCHING Notification Bar Style - Updated for Readability */
+        /* EYE-CATCHING Notification Bar Style */
         .intake-notification-bar {
             background-color: var(--alert-bg); 
-            padding: 1.5rem; /* More breathing room */
+            padding: 1.5rem;
             text-align: center;
-            border-bottom: 4px solid var(--gold-touch); /* Thicker separation line */
+            border-bottom: 4px solid var(--gold-touch);
             display: flex;
             flex-direction: row; 
             flex-wrap: wrap; 
@@ -465,16 +478,16 @@
         }
 
         .intake-notification-bar span {
-            color: var(--primary); /* High contrast Dark Green */
-            font-size: 1.2rem; /* Comfortable large size */
+            color: var(--primary);
+            font-size: 1.2rem;
             font-family: 'Lato', sans-serif;
-            font-weight: 700; /* Cleaner bold (not extra-bold) */
+            font-weight: 700;
             line-height: 1.4;
         }
         
         .intake-notification-bar strong {
             text-transform: uppercase;
-            color: #b38b59; /* Elegant Gold for emphasis */
+            color: #b38b59; /* Elegant Gold */
             font-weight: 900;
             font-size: 1.3rem;
             margin-right: 5px;
@@ -483,7 +496,7 @@
         .intake-notification-bar a {
             background-color: var(--primary);
             color: white;
-            padding: 12px 30px; /* Larger, easy-to-tap button */
+            padding: 12px 30px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: 800;
@@ -501,7 +514,7 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
 
-        /* Mobile specific adjustments for intake bar */
+        /* Mobile specific adjustments */
         @media (max-width: 600px) {
             .intake-notification-bar {
                 flex-direction: column;
@@ -516,6 +529,10 @@
             }
             .external-link {
                 display: none; 
+            }
+            /* Further reduce background issues on mobile */
+            header {
+                background-position: top center;
             }
         }
 
