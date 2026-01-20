@@ -145,6 +145,13 @@
             }
         }
 
+        /* PORTRAIT FIX: Show more of the right side of the image on mobile portrait */
+        @media (max-width: 1024px) and (orientation: portrait) {
+            header {
+                background-position: 80% center; 
+            }
+        }
+
         /* LANDSCAPE FIX: Reduce vertical padding in landscape mode to show more of the image */
         @media (orientation: landscape) and (max-height: 600px) {
             header {
@@ -638,18 +645,6 @@
                     </div>
                 </div>
 
-                <!-- Cupping -->
-                <div class="card">
-                    <!-- Updated Cupping Image: Used local file 'cupping.jpeg' as requested -->
-                    <img src="cupping.jpeg" alt="Cupping Therapy" class="card-image">
-                    <div class="card-content">
-                        <h3>Cupping Therapy</h3>
-                        <p>An ancient form of alternative medicine where special cups are placed on your skin to create suction. This facilitates pain relief, inflammation reduction, and increased blood flow.</p>
-                        <div class="price">Add-on or Standalone</div>
-                        <a href="javascript:void(0)" class="book-btn-small" onclick="openModal()">Book Now</a>
-                    </div>
-                </div>
-
                 <!-- Hot Stone -->
                 <div class="card">
                      <!-- Updated Hot Stone Image: Swapped from previous Deep Tissue (dark stones, similar to header) -->
@@ -658,6 +653,18 @@
                         <h3>Hot Stone Therapy</h3>
                         <p>Smooth, flat, heated stones are placed on specific parts of your body. The heat relaxes muscles, allowing me to work deeper with lighter pressure for a soothing experience.</p>
                         <div class="price">$100 (60 mins) / $135 (90 mins)</div>
+                        <a href="javascript:void(0)" class="book-btn-small" onclick="openModal()">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Cupping -->
+                <div class="card">
+                    <!-- Updated Cupping Image: Used local file 'cupping.jpeg' as requested -->
+                    <img src="cupping.jpeg" alt="Cupping Therapy" class="card-image">
+                    <div class="card-content">
+                        <h3>Cupping Therapy</h3>
+                        <p>An ancient form of alternative medicine where special cups are placed on your skin to create suction. This facilitates pain relief, inflammation reduction, and increased blood flow.</p>
+                        <div class="price">Add-on or Standalone</div>
                         <a href="javascript:void(0)" class="book-btn-small" onclick="openModal()">Book Now</a>
                     </div>
                 </div>
