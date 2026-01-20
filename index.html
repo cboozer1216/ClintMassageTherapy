@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clint Boozer Massage Therapy | Spokane, WA</title>
+    <title>TranquiLab BodyWork | Spokane, WA</title>
     <!-- Google Fonts for a more premium look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -21,9 +21,8 @@
             --white: #fff;
             --light-bg: #EFECE5; /* Warm Beige for sections */
             --gold-touch: #C1A57B; /* Subtle accent color */
-            --alert-bg: #fff3cd; /* Richer Amber for alert */
-            --alert-text: #856404; /* High contrast alert text */
-            --alert-border: #ffeeba; /* Amber border */
+            --alert-bg: #fff8e1; /* Very Light Amber for alert background */
+            --alert-border: #ffe082; /* Amber border */
         }
 
         body {
@@ -36,8 +35,14 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .logo {
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
+        }
+
+        /* Script Font Class */
+        .script-font {
+            font-family: 'Great Vibes', cursive;
+            font-weight: 400;
         }
 
         /* Navigation */
@@ -47,7 +52,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 1rem 3rem;
+            padding: 0.8rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -55,10 +60,12 @@
         }
 
         nav .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2rem;
+            font-weight: 400;
             color: var(--primary);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            line-height: 1;
         }
 
         nav ul {
@@ -114,11 +121,10 @@
 
         /* Hero Section */
         header {
-            /* Darker overlay for better text contrast/premium feel */
             background: linear-gradient(rgba(44, 62, 54, 0.6), rgba(44, 62, 54, 0.4)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Parallax effect */
+            background-attachment: fixed; 
             color: var(--white);
             text-align: center;
             padding: 10rem 1rem;
@@ -126,20 +132,23 @@
         }
 
         header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            margin-bottom: 0.5rem;
             line-height: 1.1;
             font-weight: 400;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         header p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             max-width: 600px;
             margin: 0 auto 3rem auto;
             font-weight: 300;
             opacity: 0.95;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .btn {
@@ -205,8 +214,8 @@
         .profile-img {
             width: 100%;
             height: 400px;
-            border-radius: 4px; /* Less rounded for more formal look */
-            box-shadow: 20px 20px 0px var(--light-bg); /* Offset shadow for style */
+            border-radius: 4px;
+            box-shadow: 20px 20px 0px var(--light-bg);
             display: block;
             object-fit: cover;
             background-color: #eee;
@@ -245,7 +254,6 @@
             background: var(--card-bg);
             border: none;
             border-radius: 2px;
-            /* REMOVED PADDING from card container to let image touch edges */
             padding: 0; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             transition: all 0.4s ease;
@@ -261,7 +269,6 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
         }
         
-        /* New Image Style in Card */
         .card-image {
             width: 100%;
             height: 220px;
@@ -269,7 +276,6 @@
             display: block;
         }
         
-        /* New Wrapper for Text inside Card */
         .card-content {
             padding: 2rem;
             display: flex;
@@ -329,7 +335,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(44, 62, 54, 0.85); /* Dark Green Overlay */
+            background: rgba(44, 62, 54, 0.85);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -366,17 +372,9 @@
         }
         
         .modal-header h2::after {
-            display: none; /* Remove underline in modal */
+            display: none; 
         }
         
-        .intake-link {
-            font-size: 0.85rem;
-            color: var(--secondary);
-            text-decoration: none;
-            margin-left: 20px;
-            border-bottom: 1px dashed var(--secondary);
-        }
-
         /* Duration Selector Buttons */
         .duration-selector {
             display: flex;
@@ -451,70 +449,73 @@
             border: none;
         }
         
-        /* EYE-CATCHING Notification Bar Style */
+        /* EYE-CATCHING Notification Bar Style - Updated for Readability */
         .intake-notification-bar {
             background-color: var(--alert-bg); 
-            padding: 1.2rem; /* Increased padding */
+            padding: 1.5rem; /* More breathing room */
             text-align: center;
-            border-bottom: 2px solid var(--alert-border);
+            border-bottom: 4px solid var(--gold-touch); /* Thicker separation line */
             display: flex;
-            flex-direction: row; /* Horizontal */
-            flex-wrap: wrap; /* Wrap on small screens */
+            flex-direction: row; 
+            flex-wrap: wrap; 
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            gap: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .intake-notification-bar span {
-            color: var(--alert-text); 
-            font-size: 1.1rem; /* Larger font */
+            color: var(--primary); /* High contrast Dark Green */
+            font-size: 1.2rem; /* Comfortable large size */
             font-family: 'Lato', sans-serif;
-            font-weight: 900; /* Extra bold */
-            line-height: 1.2;
+            font-weight: 700; /* Cleaner bold (not extra-bold) */
+            line-height: 1.4;
         }
         
         .intake-notification-bar strong {
             text-transform: uppercase;
-            color: #d88d00;
+            color: #b38b59; /* Elegant Gold for emphasis */
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-right: 5px;
         }
 
         .intake-notification-bar a {
             background-color: var(--primary);
             color: white;
-            padding: 10px 24px; /* Larger button */
+            padding: 12px 30px; /* Larger, easy-to-tap button */
             border-radius: 4px;
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
-            font-size: 0.95rem; 
-            letter-spacing: 1px;
+            font-size: 1rem; 
+            letter-spacing: 1.5px;
             transition: all 0.3s;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-            white-space: nowrap; /* Prevent button text wrapping */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            white-space: nowrap; 
         }
         
         .intake-notification-bar a:hover {
             background-color: var(--secondary);
-            transform: translateY(-1px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
 
         /* Mobile specific adjustments for intake bar */
         @media (max-width: 600px) {
             .intake-notification-bar {
-                flex-direction: column; /* Stack on small screens */
-                gap: 10px;
-                padding: 1rem;
+                flex-direction: column;
+                gap: 12px;
+                padding: 1.2rem;
             }
             .intake-notification-bar span {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             .modal-header h2 {
                 font-size: 1.1rem;
             }
             .external-link {
-                display: none; /* Hide external link on mobile to save space */
+                display: none; 
             }
         }
 
@@ -540,7 +541,7 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">Clint Boozer Massage</div>
+        <div class="logo">TranquiLab BodyWork</div>
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
@@ -551,8 +552,8 @@
 
     <!-- Hero -->
     <header>
-        <h1>Restoring Balance & Wellness</h1>
-        <p>Professional Massage Therapy in Spokane, WA</p>
+        <h1>TranquiLab BodyWork</h1>
+        <p>Restoring Balance & Wellness in Spokane, WA</p>
         <button class="btn" onclick="openModal()">Book Appointment</button>
     </header>
 
@@ -569,7 +570,7 @@
                 <img src="profile.jpg" alt="Clint Boozer" class="profile-img">
             </div>
             <div class="about-text">
-                <p>Hello! I'm <strong>Clint Boozer</strong>. I am a dedicated massage therapist based in Spokane, WA. My journey into bodywork is driven by a passion for helping others achieve physical relief and mental relaxation.</p>
+                <p>Hello! I'm <strong>Clint Boozer</strong>, owner of <strong>TranquiLab BodyWork</strong>. I am a dedicated massage therapist based in Spokane, WA. My journey into bodywork is driven by a passion for helping others achieve physical relief and mental relaxation.</p>
                 <p>I combine a strong foundation in anatomy with intuitive touch to create personalized sessions for every client. Whether you are an athlete looking to recover, or simply seeking relief from the stress of daily life, my goal is to facilitate healing and wellness.</p>
                 <p>In addition to my practice, I am deeply interested in holistic wellness and the science of recovery. I look forward to working with you to create a treatment plan that fits your specific needs.</p>
             </div>
@@ -679,7 +680,7 @@
 
     <!-- Contact / Footer -->
     <footer id="contact">
-        <p><strong>Clint Boozer Massage Therapy</strong></p>
+        <p><strong>TranquiLab BodyWork</strong></p>
         <p>Spokane, Washington</p>
         <p><a href="mailto:clint.boozer@gmail.com" style="color: inherit; text-decoration: none; border-bottom: 1px dotted rgba(255,255,255,0.5);">clint.boozer@gmail.com</a></p>
         <br>
