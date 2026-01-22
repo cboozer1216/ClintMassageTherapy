@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Intake Form | Clint Boozer Massage</title>
+    <title>Intake Form | TranquiLab BodyWork</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --primary: #2C3E36;
             --secondary: #5F7161;
             --bg-color: #FAF9F6;
-            --card-bg: #FFFFFF;
+            --card-bg: rgba(255, 255, 255, 0.96); /* Slight transparency for effect */
             --text: #3E3E3E;
         }
 
         body {
             font-family: 'Lato', sans-serif;
-            background-color: var(--bg-color);
             color: var(--text);
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            
+            /* Background Image Styles (Matched to Main Site) */
+            background: linear-gradient(rgba(44, 62, 54, 0.6), rgba(44, 62, 54, 0.4)), url('background.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            min-height: 100vh;
+        }
+
+        /* MOBILE & TABLET FIXES (Matched to Main Site) */
+        @media (max-width: 1024px) {
+            body {
+                background-attachment: scroll;
+                background-position: center center;
+            }
+        }
+
+        /* PORTRAIT FIX: Show left side (oils) on mobile portrait */
+        @media (max-width: 1024px) and (orientation: portrait) {
+            body {
+                background-position: 15% center; 
+            }
         }
 
         .container {
@@ -32,16 +53,34 @@
             margin: 3rem auto;
             background: var(--card-bg);
             padding: 3rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             border-radius: 4px;
+            position: relative; /* To sit above background */
+        }
+
+        /* Adjust margins for mobile to show background */
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Great Vibes', cursive; /* Script font for title */
             color: var(--primary);
             text-align: center;
+            margin-bottom: 0.5rem;
+            font-size: 3.5rem;
+            line-height: 1.1;
+        }
+        
+        .sub-header {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-            font-size: 2.5rem;
+            color: var(--secondary);
         }
 
         h3 {
@@ -148,8 +187,13 @@
             display: block;
             text-align: center;
             margin-top: 20px;
-            color: var(--secondary);
+            color: white; /* Changed to white to be visible on dark background */
             text-decoration: none;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
         }
 
         /* Loading Overlay */
@@ -171,7 +215,8 @@
 <body>
 
     <div class="container">
-        <h1>Client Intake Form</h1>
+        <h1>TranquiLab BodyWork</h1>
+        <div class="sub-header">Client Intake Form</div>
         <p style="text-align: center;">Please complete this form before your session.</p>
 
         <!-- Form Action will be set by Javascript -->
@@ -370,7 +415,7 @@
         // 1. You will create a Google Script (see instructions).
         // 2. You will get a URL (Web App URL).
         // 3. Paste that URL inside the quotes below:
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwQD4k1c0mEud3NbAef2NDLsD6vdPaGE8J4MOafY1ZHlnVOhM-5r7hhlOaXveUCUhlXjA/exec';
+        const scriptURL = 'PASTE_YOUR_GOOGLE_SCRIPT_WEB_APP_URL_HERE';
 
         const form = document.forms['intakeForm'];
         const loading = document.getElementById('loading');
