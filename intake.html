@@ -195,15 +195,22 @@
         
         .back-link {
             display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: white; /* Changed to white to be visible on dark background */
+            width: fit-content;
+            margin: 2rem auto;
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
             text-decoration: none;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
         }
         
         .back-link:hover {
-            text-decoration: underline;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            text-decoration: none;
         }
 
         /* Loading Overlay */
