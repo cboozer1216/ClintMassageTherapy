@@ -73,7 +73,7 @@
 
         /* Logo in the nav bar */
         .nav-logo-img {
-            height: 70px; /* Increased from 50px to 70px */
+            height: 70px; /* Default height for desktop */
             width: auto;
             border-radius: 50%;
             border: 1px solid rgba(0,0,0,0.1);
@@ -133,6 +133,10 @@
                 text-align: center;
                 justify-content: center;
             }
+            /* Bigger logo in mobile portrait/menu */
+            .nav-logo-img {
+                height: 90px;
+            }
         }
 
         /* Hero Section */
@@ -186,11 +190,15 @@
                 padding: 2rem 1rem 4rem 1rem; /* Significantly reduced padding */
             }
             .logo-img {
-                max-width: 120px; /* Smaller logo in landscape */
+                max-width: 120px; /* Smaller main logo in landscape */
             }
             /* Add more space between menu items in landscape */
             nav {
                 gap: 1.5rem;
+            }
+            /* Ensure nav logo is sized correctly for landscape mobile */
+            .nav-logo-img {
+                height: 85px; 
             }
         }
 
