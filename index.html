@@ -52,7 +52,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 0.5rem 3rem; /* Slightly reduced padding to fit logo */
+            padding: 0.5rem 3rem; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -68,7 +68,7 @@
             line-height: 1;
             display: flex;
             align-items: center;
-            gap: 12px; /* Space between logo and text */
+            gap: 12px;
         }
 
         /* Logo in the nav bar */
@@ -141,14 +141,11 @@
             
             color: var(--white);
             text-align: center;
-            padding: 4rem 1rem 10rem 1rem; /* Reduced top padding to move logo up */
+            padding: 4rem 1rem 10rem 1rem;
             position: relative;
         }
 
-        /* MOBILE & TABLET FIX: Disable Parallax on phones and tablets.
-           This fixes the issue where the background disappears or zooms in too much.
-           Increased max-width to 1024px to catch landscape phones and tablets.
-        */
+        /* MOBILE & TABLET FIX: Disable Parallax */
         @media (max-width: 1024px) {
             header {
                 background-attachment: scroll;
@@ -156,7 +153,7 @@
             }
         }
 
-        /* PORTRAIT FIX: Show more of the LEFT side (oils) of the image on mobile portrait */
+        /* PORTRAIT FIX */
         @media (max-width: 1024px) and (orientation: portrait) {
             header {
                 background-position: 15% center; 
@@ -167,7 +164,7 @@
             max-width: 160px; 
             width: 100%;
             height: auto; 
-            margin-bottom: -1.5rem; /* Negative margin to pull text closer */
+            margin-bottom: -1.5rem;
             border-radius: 50%;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             border: 3px solid rgba(255,255,255,0.8);
@@ -175,13 +172,17 @@
             z-index: 2;
         }
 
-        /* LANDSCAPE FIX: Reduce vertical padding and logo size in landscape mode */
+        /* LANDSCAPE FIX: Aggressively reduce padding to move logo UP */
         @media (orientation: landscape) and (max-height: 600px) {
             header {
-                padding: 2rem 1rem 4rem 1rem; /* Significantly reduced padding */
+                padding: 1rem 1rem 3rem 1rem; /* Much less padding on top */
             }
             .logo-img {
-                max-width: 120px; /* Smaller logo in landscape */
+                max-width: 100px; /* Even smaller logo */
+                margin-bottom: -1rem;
+            }
+            header h1 {
+                font-size: 3.5rem; /* Smaller title */
             }
         }
 
@@ -208,7 +209,7 @@
             opacity: 1;
         }
 
-        /* Standard Header Paragraph (for "Restoring Balance...") */
+        /* Standard Header Paragraph */
         header p {
             font-size: 1.4rem;
             max-width: 600px;
