@@ -141,7 +141,7 @@
             
             color: var(--white);
             text-align: center;
-            padding: 6rem 1rem 10rem 1rem;
+            padding: 4rem 1rem 10rem 1rem; /* Reduced top padding to move logo up */
             position: relative;
         }
 
@@ -163,23 +163,26 @@
             }
         }
 
-        /* LANDSCAPE FIX: Reduce vertical padding in landscape mode to show more of the image */
-        @media (orientation: landscape) and (max-height: 600px) {
-            header {
-                padding: 3rem 1rem; /* Reduced from 10rem */
-            }
-        }
-
         .logo-img {
-            max-width: 160px; /* Reduced further to 160px */
+            max-width: 160px; 
             width: 100%;
-            height: auto;
+            height: auto; 
             margin-bottom: -1.5rem; /* Negative margin to pull text closer */
-            border-radius: 50%; /* Optional: Makes it circular if it's square */
+            border-radius: 50%;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             border: 3px solid rgba(255,255,255,0.8);
             position: relative;
             z-index: 2;
+        }
+
+        /* LANDSCAPE FIX: Reduce vertical padding and logo size in landscape mode */
+        @media (orientation: landscape) and (max-height: 600px) {
+            header {
+                padding: 2rem 1rem 4rem 1rem; /* Significantly reduced padding */
+            }
+            .logo-img {
+                max-width: 120px; /* Smaller logo in landscape */
+            }
         }
 
         header h1 {
