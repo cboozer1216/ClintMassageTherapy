@@ -173,7 +173,7 @@
         }
 
         .logo-img {
-            max-width: 220px; /* Reverted to 220px */
+            max-width: 220px; 
             width: 100%;
             height: auto; 
             margin-bottom: -1.5rem; /* Negative margin to pull text closer */
@@ -190,7 +190,7 @@
                 padding: 2rem 1rem 4rem 1rem; /* Significantly reduced padding */
             }
             .logo-img {
-                max-width: 160px; /* Reverted to 160px */
+                max-width: 140px; /* Increased size in landscape */
                 margin-bottom: 0.5rem; /* Added space between logo and text */
             }
             /* Add more space between menu items in landscape */
@@ -580,19 +580,19 @@
             border: none;
         }
         
-        /* EYE-CATCHING Notification Bar Style */
+        /* COMPACT Intake Notification Bar Style */
         .intake-notification-bar {
             background-color: var(--alert-bg); 
-            padding: 1.5rem;
+            padding: 0.5rem; /* Drastically reduced from 1.5rem */
             text-align: center;
-            border-bottom: 4px solid var(--gold-touch);
+            border-bottom: 2px solid var(--gold-touch); /* Thinner border */
             display: flex;
             flex-direction: row; 
             flex-wrap: wrap; 
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            gap: 10px; /* Reduced gap */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
         .notification-content {
@@ -603,7 +603,7 @@
         }
 
         .notification-logo {
-            height: 65px; /* Increased for desktop visibility */
+            height: 40px; /* Small logo for desktop */
             width: auto;
             border-radius: 50%;
             border: 1px solid rgba(0,0,0,0.1);
@@ -611,59 +611,77 @@
 
         .intake-notification-bar span {
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1rem; /* Smaller font */
             font-family: 'Lato', sans-serif;
             font-weight: 700;
-            line-height: 1.4;
+            line-height: 1.2;
         }
         
         .intake-notification-bar strong {
             text-transform: uppercase;
             color: #b38b59; /* Elegant Gold */
             font-weight: 900;
-            font-size: 1.3rem;
-            margin-right: 5px;
         }
 
         .intake-notification-bar a {
             background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
+            padding: 8px 20px; /* Smaller button */
             border-radius: 4px;
             text-decoration: none;
-            font-weight: 800;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 1rem; 
-            letter-spacing: 1.5px;
+            font-size: 0.85rem; 
+            letter-spacing: 1px;
             transition: all 0.3s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             white-space: nowrap; 
         }
         
         .intake-notification-bar a:hover {
             background-color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         /* Mobile specific adjustments */
         @media (max-width: 600px) {
             .intake-notification-bar {
-                flex-direction: column;
-                gap: 12px;
-                padding: 1.2rem;
+                flex-direction: row; /* Keep side-by-side */
+                flex-wrap: wrap;
+                gap: 5px;
+                padding: 0.4rem; /* Minimal padding */
+            }
+            .notification-logo {
+                display: block; /* Show image on mobile now */
+                height: 30px; /* Very small */
             }
             .intake-notification-bar span {
-                font-size: 1.1rem;
+                font-size: 0.85rem; /* Smaller text */
+            }
+            .intake-notification-bar a {
+                padding: 4px 10px; /* Compact button */
+                font-size: 0.8rem;
             }
             .modal-header h2 {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             .external-link {
                 display: none; 
             }
+        }
+        
+        /* Landscape Mobile adjustments */
+        @media (max-height: 600px) and (orientation: landscape) {
+             .intake-notification-bar {
+                padding: 0.25rem; /* Ultra tight */
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+            }
             .notification-logo {
-                height: 40px; /* Kept small on mobile */
+                display: block; /* Show image on landscape too */
+                height: 25px; /* Even smaller */
             }
         }
 
@@ -814,7 +832,7 @@
             <div class="modal-header">
                 <h2>Schedule Your Session</h2>
                 <!-- External Link updates dynamically -->
-                <a id="externalLink" href="https://cal.com/tranquilabmassage/60min" target="_blank" class="external-link">Open in new window ↗</a>
+                <a id="externalLink" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" target="_blank" class="external-link">Open in new window ↗</a>
                 <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
             
@@ -837,7 +855,7 @@
                 <!-- Google Calendar Appointment Schedule Iframe -->
                 <iframe 
                     id="calendarFrame"
-                    src="https://cal.com/tranquilabmassage/60min" 
+                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" 
                     title="Schedule Appointment"
                     allow="camera; microphone; autoplay; fullscreen"
                 ></iframe>
@@ -859,8 +877,8 @@
         const modal = document.getElementById('bookingModal');
 
         // CALENDAR LINKS - Updated with user provided 60m and 90m links
-        const link60 = "https://cal.com/tranquilabmassage/60min";
-        const link90 = "https://cal.com/tranquilabmassage/90min"; 
+        const link60 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true";
+        const link90 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2O2cBYzn5hHCMI_y8_D2tDXRZarl5GeRQv0g0yRVr6YaFCLIP_bZsFj1bpswYXI6UWEIfmd-g0?gv=true"; 
 
         function openModal() {
             modal.style.display = 'flex';
