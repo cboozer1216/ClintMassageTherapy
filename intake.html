@@ -111,6 +111,20 @@
             display: block;
         }
 
+        /* Fallback Link Style */
+        .mobile-fallback-link {
+            display: none;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .mobile-fallback-link a {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
         /* Mobile Header Adjustments (Portrait) */
         @media (max-width: 600px) {
             .header-row {
@@ -132,12 +146,17 @@
             }
             
             /* MOBILE HEIGHT FIX: 
-               Force the container to be extremely tall. 
-               This ensures the browser window scrolls naturally to the bottom content.
+               Force the container to be extremely tall (5500px).
+               This ensures the page scrolls naturally.
             */
             .form-embed-wrapper {
-                height: 5000px !important; 
+                height: 5500px !important; 
                 overflow: visible !important;
+            }
+            
+            /* Show fallback link on mobile */
+            .mobile-fallback-link {
+                display: block;
             }
         }
         
@@ -171,6 +190,11 @@
                 height: 4500px !important;
                 overflow: visible !important;
             }
+
+            /* Show fallback link on mobile */
+            .mobile-fallback-link {
+                display: block;
+            }
         }
         
         .back-link {
@@ -203,9 +227,13 @@
             <img src="logo.jpeg" alt="TranquiLab Logo" class="logo-img">
             <h1>TranquiLab Massage & BodyWork</h1>
         </div>
+
+        <!-- Fail-Safe Link for Mobile Users -->
+        <div class="mobile-fallback-link">
+            Having trouble scrolling? <a href="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" target="_blank">Open form in full window</a>
+        </div>
         
         <!-- Carepatron Embed Code -->
-        <!-- Using CSS class .form-embed-wrapper to handle responsive height -->
         <div class="form-embed-wrapper">
             <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" scrolling="yes"></iframe>
         </div>
