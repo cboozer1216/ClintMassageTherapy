@@ -12,12 +12,13 @@
     <style>
         :root {
             /* Updated Palette based on "Spa/Therapeutic" aesthetic */
-            --primary: #2C3E36; /* Deep Forest Green */
+            --primary: #3D5C4B; /* Eucalyptus Green */
             --secondary: #5F7161; /* Sage */
             --accent: #A6B5A1; /* Light Sage */
             --bg-color: #FAF9F6; /* Off-white/Cream */
             --card-bg: #FFFFFF;
-            --text: #3E3E3E; /* Soft Black */
+            /* CHANGED TEXT TO DARK PINE */
+            --text: #1C2E22; /* Dark Pine Green - Softer than black but high contrast */
             --white: #fff;
             --light-bg: #EFECE5; /* Warm Beige for sections */
             --gold-touch: #C1A57B; /* Subtle accent color */
@@ -797,7 +798,7 @@
             <div class="modal-header">
                 <h2>Schedule Your Session</h2>
                 <!-- External Link updates dynamically -->
-                <a id="externalLink" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" target="_blank" class="external-link">Open in new window ↗</a>
+                <a id="externalLink" href="https://cal.com/tranquilabmassage/60min" target="_blank" class="external-link">Open in new window ↗</a>
                 <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
             
@@ -817,8 +818,9 @@
                 <!-- Google Calendar Appointment Schedule Iframe -->
                 <iframe 
                     id="calendarFrame"
-                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" 
+                    src="https://cal.com/tranquilabmassage/60min" 
                     title="Schedule Appointment"
+                    allow="camera; microphone; autoplay; fullscreen"
                 ></iframe>
             </div>
         </div>
@@ -838,8 +840,8 @@
         const modal = document.getElementById('bookingModal');
 
         // CALENDAR LINKS - Updated with user provided 60m and 90m links
-        const link60 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true";
-        const link90 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2O2cBYzn5hHCMI_y8_D2tDXRZarl5GeRQv0g0yRVr6YaFCLIP_bZsFj1bpswYXI6UWEIfmd-g0?gv=true"; 
+        const link60 = "https://cal.com/tranquilabmassage/60min";
+        const link90 = "https://cal.com/tranquilabmassage/90min"; 
 
         function openModal() {
             modal.style.display = 'flex';
