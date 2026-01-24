@@ -117,19 +117,12 @@
             text-align: center;
             margin-bottom: 1rem;
             font-size: 0.9rem;
-            padding: 10px;
-            background-color: #fff3cd;
-            border: 1px solid #ffeeba;
-            border-radius: 4px;
-            color: #856404;
         }
         
         .mobile-fallback-link a {
-            color: #856404;
-            font-weight: 800;
+            color: var(--primary);
+            font-weight: 700;
             text-decoration: underline;
-            display: block;
-            margin-top: 5px;
         }
 
         /* Mobile Header Adjustments (Portrait) */
@@ -152,17 +145,13 @@
                 font-size: 1.5rem; /* Significantly reduced for portrait readability */
             }
             
-            /* SCROLL FIX: Windowed scrolling (Reverted to the version that worked on Safari/Android) */
+            /* REVERTED TO STANDARD IFRAME SCROLLING:
+               This sets the window size to 80% of the screen.
+               The IFRAME will handle the scrolling internally (standard behavior).
+            */
             .form-embed-wrapper {
-                height: 80vh; /* 80% of viewport height for max visibility */
-                overflow-y: scroll; /* Allow scrolling within this wrapper */
-                -webkit-overflow-scrolling: touch; /* Smooth scroll */
-                border: 1px solid #eee;
-            }
-            
-            /* Force iframe to be tall enough to contain the form, so the wrapper scrolls */
-            .form-embed-wrapper iframe {
-                height: 4500px !important; 
+                height: 80vh; 
+                overflow: hidden; 
             }
             
             /* Show fallback link on mobile */
@@ -194,16 +183,10 @@
                 text-align: center;
             }
             
-            /* SCROLL FIX Landscape */
+            /* Landscape Height */
             .form-embed-wrapper {
                 height: 70vh; 
-                overflow-y: scroll;
-                -webkit-overflow-scrolling: touch;
-                border: 1px solid #eee;
-            }
-            
-            .form-embed-wrapper iframe {
-                height: 4500px !important;
+                overflow: hidden;
             }
 
             /* Show fallback link on mobile */
@@ -245,13 +228,12 @@
 
         <!-- Fail-Safe Link for Mobile Users -->
         <div class="mobile-fallback-link">
-            Having trouble scrolling? 
-            <a href="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" target="_blank">Open form in new window (Please use Safari on iPhone)</a>
+            Having trouble scrolling? <a href="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" target="_blank">Open form in new window (Please use Safari on iPhone)</a>
         </div>
         
         <!-- Carepatron Embed Code -->
         <div class="form-embed-wrapper">
-            <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" scrolling="yes"></iframe>
+            <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" scrolling="no"></iframe>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
