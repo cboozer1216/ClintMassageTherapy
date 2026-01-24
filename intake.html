@@ -98,9 +98,17 @@
         /* Responsive Form Container Height */
         .form-embed-wrapper {
             width: 100%;
-            /* Desktop: Fixed tall height for clean look without inner scroll */
+            display: block;
+            /* Default Desktop Height - usually sufficient */
             height: 1600px; 
-            overflow: hidden;
+            overflow: hidden; 
+        }
+
+        .form-embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
         }
 
         /* Mobile Header Adjustments (Portrait) */
@@ -123,23 +131,13 @@
                 font-size: 1.5rem; /* Significantly reduced for portrait readability */
             }
             
-            /* CHROME iOS FIX:
-               1. Set wrapper to specific viewport height (70vh).
-               2. Set overflow-y: auto on WRAPPER (not iframe).
-               3. Force iframe to be huge (3500px) so the wrapper scrolls, not the iframe.
+            /* MOBILE HEIGHT FIX: 
+               Force the container to be extremely tall. 
+               This ensures the browser window scrolls naturally to the bottom content.
             */
             .form-embed-wrapper {
-                height: 70vh; /* Fits on screen above toolbar */
-                overflow-y: auto; /* Wrapper handles scrolling */
-                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-                border: 1px solid #eee;
-                display: block;
-            }
-            
-            .form-embed-wrapper iframe {
-                height: 3500px !important; /* Force tall height to reveal all content */
-                min-height: 100%;
-                display: block;
+                height: 5000px !important; 
+                overflow: visible !important;
             }
         }
         
@@ -166,18 +164,12 @@
                 text-align: center;
             }
             
-             /* Landscape Scroll Fix */
+            /* LANDSCAPE HEIGHT FIX: 
+               Also force tall height here. 
+            */
             .form-embed-wrapper {
-                height: 65vh; /* Slightly shorter for landscape */
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-                border: 1px solid #eee;
-                display: block;
-            }
-            
-            .form-embed-wrapper iframe {
-                height: 3500px !important;
-                display: block;
+                height: 4500px !important;
+                overflow: visible !important;
             }
         }
         
@@ -215,7 +207,7 @@
         <!-- Carepatron Embed Code -->
         <!-- Using CSS class .form-embed-wrapper to handle responsive height -->
         <div class="form-embed-wrapper">
-            <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" width="100%" height="100%" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" style="border:0;"></iframe>
+            <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" scrolling="yes"></iframe>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
