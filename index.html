@@ -173,7 +173,7 @@
         }
 
         .logo-img {
-            max-width: 220px; 
+            max-width: 320px; /* Big on Desktop */
             width: 100%;
             height: auto; 
             margin-bottom: -1.5rem; /* Negative margin to pull text closer */
@@ -190,7 +190,7 @@
                 padding: 2rem 1rem 4rem 1rem; /* Significantly reduced padding */
             }
             .logo-img {
-                max-width: 140px; /* Increased size in landscape */
+                max-width: 100px; /* Small and unobtrusive in landscape */
                 margin-bottom: 0.5rem; /* Added space between logo and text */
             }
             /* Add more space between menu items in landscape */
@@ -200,6 +200,13 @@
             /* Ensure nav logo is sized correctly for landscape mobile */
             .nav-logo-img {
                 height: 85px; 
+            }
+        }
+
+        /* Mobile Portrait Logo Size */
+        @media (max-width: 600px) and (orientation: portrait) {
+             .logo-img {
+                max-width: 140px; 
             }
         }
 
@@ -580,19 +587,19 @@
             border: none;
         }
         
-        /* COMPACT Intake Notification Bar Style */
+        /* EYE-CATCHING Intake Notification Bar Style */
         .intake-notification-bar {
             background-color: var(--alert-bg); 
-            padding: 0.5rem; /* Drastically reduced from 1.5rem */
+            padding: 1.5rem;
             text-align: center;
-            border-bottom: 2px solid var(--gold-touch); /* Thinner border */
+            border-bottom: 4px solid var(--gold-touch);
             display: flex;
             flex-direction: row; 
             flex-wrap: wrap; 
             justify-content: center;
             align-items: center;
-            gap: 10px; /* Reduced gap */
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            gap: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .notification-content {
@@ -832,7 +839,7 @@
             <div class="modal-header">
                 <h2>Schedule Your Session</h2>
                 <!-- External Link updates dynamically -->
-                <a id="externalLink" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" target="_blank" class="external-link">Open in new window ↗</a>
+                <a id="externalLink" href="https://cal.com/tranquilabmassage/60min" target="_blank" class="external-link">Open in new window ↗</a>
                 <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
             
@@ -855,7 +862,7 @@
                 <!-- Google Calendar Appointment Schedule Iframe -->
                 <iframe 
                     id="calendarFrame"
-                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true" 
+                    src="https://cal.com/tranquilabmassage/60min" 
                     title="Schedule Appointment"
                     allow="camera; microphone; autoplay; fullscreen"
                 ></iframe>
@@ -877,8 +884,8 @@
         const modal = document.getElementById('bookingModal');
 
         // CALENDAR LINKS - Updated with user provided 60m and 90m links
-        const link60 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2muKio4nVbjIKp48FLelWSCNyCLxaT1W8bOKQsWhFgU46Cuo68ECeFJJR2cd4lHsXjCVHWTsPE?gv=true";
-        const link90 = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2O2cBYzn5hHCMI_y8_D2tDXRZarl5GeRQv0g0yRVr6YaFCLIP_bZsFj1bpswYXI6UWEIfmd-g0?gv=true"; 
+        const link60 = "https://cal.com/tranquilabmassage/60min";
+        const link90 = "https://cal.com/tranquilabmassage/90min"; 
 
         function openModal() {
             modal.style.display = 'flex';
