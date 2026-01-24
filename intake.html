@@ -100,7 +100,7 @@
             width: 100%;
             display: block;
             /* Desktop: Fixed tall height for clean look without inner scroll */
-            height: 1600px; 
+            height: 1200px; 
             overflow: hidden; 
         }
 
@@ -145,17 +145,13 @@
                 font-size: 1.5rem; /* Significantly reduced for portrait readability */
             }
             
-            /* SCROLL FIX: Windowed scrolling (Reverted to the version that worked on Safari/Android) */
+            /* REVERTED TO STANDARD IFRAME SCROLLING:
+               This sets the window size to 80% of the screen.
+               The IFRAME will handle the scrolling internally (standard behavior).
+            */
             .form-embed-wrapper {
-                height: 75vh; /* 75% of viewport height */
-                overflow-y: scroll; /* Allow scrolling within this wrapper */
-                -webkit-overflow-scrolling: touch; /* Smooth scroll */
-                border: 1px solid #eee;
-            }
-            
-            /* Force iframe to be tall enough to contain the form, so the wrapper scrolls */
-            .form-embed-wrapper iframe {
-                height: 4500px !important; 
+                height: 80vh; 
+                overflow: hidden; /* Let iframe handle scroll */
             }
             
             /* Show fallback link on mobile */
@@ -187,16 +183,10 @@
                 text-align: center;
             }
             
-            /* SCROLL FIX Landscape */
+            /* Landscape Height */
             .form-embed-wrapper {
                 height: 70vh; 
-                overflow-y: scroll;
-                -webkit-overflow-scrolling: touch;
-                border: 1px solid #eee;
-            }
-            
-            .form-embed-wrapper iframe {
-                height: 4500px !important;
+                overflow: hidden;
             }
 
             /* Show fallback link on mobile */
