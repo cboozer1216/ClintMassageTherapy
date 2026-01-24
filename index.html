@@ -17,7 +17,6 @@
             --accent: #A6B5A1; /* Light Sage */
             --bg-color: #FAF9F6; /* Off-white/Cream */
             --card-bg: #FFFFFF;
-            /* CHANGED TEXT TO DARK PINE */
             --text: #1C2E22; /* Dark Pine Green - Softer than black but high contrast */
             --white: #fff;
             --light-bg: #EFECE5; /* Warm Beige for sections */
@@ -174,7 +173,7 @@
         }
 
         .logo-img {
-            max-width: 160px; 
+            max-width: 220px; /* Reverted to 220px */
             width: 100%;
             height: auto; 
             margin-bottom: -1.5rem; /* Negative margin to pull text closer */
@@ -191,7 +190,7 @@
                 padding: 2rem 1rem 4rem 1rem; /* Significantly reduced padding */
             }
             .logo-img {
-                max-width: 140px; /* Increased size in landscape */
+                max-width: 160px; /* Reverted to 160px */
                 margin-bottom: 0.5rem; /* Added space between logo and text */
             }
             /* Add more space between menu items in landscape */
@@ -596,6 +595,20 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
+        .notification-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .notification-logo {
+            height: 65px; /* Increased for desktop visibility */
+            width: auto;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
         .intake-notification-bar span {
             color: var(--primary);
             font-size: 1.2rem;
@@ -648,6 +661,9 @@
             }
             .external-link {
                 display: none; 
+            }
+            .notification-logo {
+                height: 40px; /* Kept small on mobile */
             }
         }
 
@@ -804,7 +820,10 @@
             
             <!-- EYE-CATCHING Intake Notification at Top (Side-by-side) -->
             <div class="intake-notification-bar">
-                 <span><strong>NEW CLIENT?</strong> Please fill this out before arrival:</span>
+                 <div class="notification-content">
+                    <img src="logo.jpeg" alt="Logo" class="notification-logo">
+                    <span><strong>NEW CLIENT?</strong> Please fill this out before arrival:</span>
+                 </div>
                  <a href="intake.html" target="_blank">Fill Intake Form</a>
             </div>
 
