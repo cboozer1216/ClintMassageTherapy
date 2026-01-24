@@ -99,7 +99,7 @@
         .form-embed-wrapper {
             width: 100%;
             display: block;
-            /* Default Desktop Height - usually sufficient */
+            /* Desktop: Fixed tall height for clean look without inner scroll */
             height: 1600px; 
             overflow: hidden; 
         }
@@ -145,13 +145,17 @@
                 font-size: 1.5rem; /* Significantly reduced for portrait readability */
             }
             
-            /* MOBILE HEIGHT FIX: 
-               Force the container to be extremely tall (5500px).
-               This ensures the page scrolls naturally.
-            */
+            /* SCROLL FIX: Windowed scrolling (Reverted to the version that worked on Safari/Android) */
             .form-embed-wrapper {
-                height: 5500px !important; 
-                overflow: visible !important;
+                height: 75vh; /* 75% of viewport height */
+                overflow-y: auto; /* Allow scrolling within this wrapper */
+                -webkit-overflow-scrolling: touch; /* Smooth scroll */
+                border: 1px solid #eee;
+            }
+            
+            /* Force iframe to be tall enough to contain the form, so the wrapper scrolls */
+            .form-embed-wrapper iframe {
+                height: 3500px !important; 
             }
             
             /* Show fallback link on mobile */
@@ -183,12 +187,16 @@
                 text-align: center;
             }
             
-            /* LANDSCAPE HEIGHT FIX: 
-               Also force tall height here. 
-            */
+            /* SCROLL FIX Landscape */
             .form-embed-wrapper {
-                height: 4500px !important;
-                overflow: visible !important;
+                height: 65vh; 
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                border: 1px solid #eee;
+            }
+            
+            .form-embed-wrapper iframe {
+                height: 3500px !important;
             }
 
             /* Show fallback link on mobile */
