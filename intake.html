@@ -95,7 +95,7 @@
             line-height: 1;
         }
 
-        /* Mobile Header Adjustments */
+        /* Mobile Header Adjustments (Portrait) */
         @media (max-width: 600px) {
             .header-row {
                 flex-direction: column;
@@ -111,6 +111,30 @@
             h1 {
                 text-align: center;
                 font-size: 2.2rem;
+            }
+        }
+        
+        /* Mobile Header Adjustments (Landscape) */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .container {
+                margin: 0;
+                padding: 0.5rem;
+            }
+            
+            .header-row {
+                justify-content: center;
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+
+            /* Hide logo to maximize vertical space */
+            .logo-img {
+                display: none;
+            }
+
+            h1 {
+                font-size: 1.8rem; /* Significantly smaller for landscape */
+                text-align: center;
             }
         }
         
