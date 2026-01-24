@@ -147,13 +147,13 @@
             
             /* SCROLL FIX: Windowed scrolling (Reverted to the version that worked on Safari/Android) */
             .form-embed-wrapper {
-                height: 80vh; /* 80% of viewport height for max visibility */
-                overflow-y: scroll; /* Force scrolling capability */
+                height: 75vh; /* 75% of viewport height */
+                overflow-y: scroll; /* Allow scrolling within this wrapper */
                 -webkit-overflow-scrolling: touch; /* Smooth scroll */
                 border: 1px solid #eee;
             }
             
-            /* Force iframe to be extremely tall to contain the entire form, ensuring the wrapper scrolls to the bottom */
+            /* Force iframe to be tall enough to contain the form, so the wrapper scrolls */
             .form-embed-wrapper iframe {
                 height: 4500px !important; 
             }
@@ -243,7 +243,7 @@
         
         <!-- Carepatron Embed Code -->
         <div class="form-embed-wrapper">
-            <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" scrolling="no"></iframe>
+            <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" scrolling="yes"></iframe>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
