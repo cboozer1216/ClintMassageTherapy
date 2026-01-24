@@ -11,13 +11,11 @@
     
     <style>
         :root {
-            /* Updated to Eucalyptus Green */
             --primary: #3D5C4B;
             --secondary: #5F7161;
             --bg-color: #FAF9F6;
             --card-bg: rgba(255, 255, 255, 0.96); /* Slight transparency for effect */
-            /* CHANGED TEXT TO DARK PINE */
-            --text: #1C2E22; /* Dark Pine Green */
+            --text: #1C2E22;
         }
 
         body {
@@ -52,7 +50,7 @@
 
         .container {
             max-width: 1000px; /* Wider to accommodate the embedded form */
-            margin: 3rem auto;
+            margin: 2rem auto;
             background: var(--card-bg);
             padding: 2rem;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
@@ -63,28 +61,51 @@
         /* Adjust margins for mobile */
         @media (max-width: 768px) {
             .container {
-                margin: 1rem;
+                margin: 0.5rem;
                 padding: 1rem;
             }
         }
 
+        /* Header Row Layout */
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
         .logo-img {
             display: block;
-            margin: 0 auto 1rem auto;
-            max-width: 150px;
-            width: 100%;
-            height: auto;
+            width: 80px; /* Much smaller */
+            height: 80px;
             border-radius: 50%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            object-fit: cover;
         }
 
         h1 {
             font-family: 'Great Vibes', cursive;
             color: var(--primary);
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 3rem;
-            line-height: 1.1;
+            text-align: left;
+            margin: 0;
+            font-size: 2.8rem; /* Reduced size */
+            line-height: 1;
+        }
+
+        /* Mobile Header Adjustments */
+        @media (max-width: 600px) {
+            .header-row {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            h1 {
+                text-align: center;
+                font-size: 2.2rem;
+            }
         }
         
         .back-link {
@@ -112,15 +133,16 @@
 <body>
 
     <div class="container">
-        <!-- Logo -->
-        <img src="logo.jpeg" alt="TranquiLab Logo" class="logo-img">
-        
-        <h1>TranquiLab Massage & BodyWork</h1>
+        <!-- New Side-by-Side Header Layout -->
+        <div class="header-row">
+            <img src="logo.jpeg" alt="TranquiLab Logo" class="logo-img">
+            <h1>TranquiLab Massage & BodyWork</h1>
+        </div>
         
         <!-- Carepatron Embed Code -->
-        <!-- Increased min-height to 1200px to allow form to show without inner scrolling on larger screens -->
+        <!-- Added loading="lazy" for speed optimization -->
         <div style="display:grid;width:100%;height:100%;min-width:320px;min-height:1200px">
-            <iframe title="Client Intake Form" alt="New Massage Client Intake Form" width="100%" height="100%" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" style="border:0;"></iframe>
+            <iframe title="Client Intake Form" loading="lazy" alt="New Massage Client Intake Form" width="100%" height="100%" src="https://form.carepatron.com/Forms/MSZJPb0KjnMAWkjWM?&e=i" style="border:0;"></iframe>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
